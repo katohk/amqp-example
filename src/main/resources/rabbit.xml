@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+		
+	<bean id="rabbitConnectionFactory" class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory" scope="prototype">
+		<property name="addresses" value="vm7"/>
+		<property name="username" value="rabbitmq"/>
+		<property name="password" value="rabbitmq"/>
+		<property name="virtualHost" value="Test1"/>
+		
+		<property name="publisherReturns" value="true"/>
+		<property name="publisherConfirmType" ref="CORRELATED"/>
+	</bean>
+	
+	<bean id="CORRELATED" class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory.ConfirmType" factory-method="valueOf">
+		<constructor-arg value="CORRELATED"/>
+	</bean>
+</beans>
