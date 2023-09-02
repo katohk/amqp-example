@@ -1,4 +1,4 @@
-package com.github.kaohk.sample.rabbit.producer;
+package com.github.katohk.sample.rabbit.producer;
 
 import java.util.concurrent.ExecutionException;
 

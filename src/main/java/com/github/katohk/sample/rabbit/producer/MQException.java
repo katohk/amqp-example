@@ -1,4 +1,4 @@
-package com.github.kaohk.sample.rabbit.producer;
+package com.github.katohk.sample.rabbit.producer;
 
 public class MQException extends Exception {
 	private static final long serialVersionUID = 1L;

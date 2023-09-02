@@ -1,4 +1,4 @@
-package com.github.kaohk.sample.rabbit.producer;
+package com.github.katohk.sample.rabbit.producer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
