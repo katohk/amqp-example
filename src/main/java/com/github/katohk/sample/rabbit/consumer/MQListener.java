@@ -13,10 +13,18 @@ public class MQListener implements ChannelAwareMessageListener {
 	public void onMessage(Message message, Channel channel) throws Exception {
 		String queueName = message.getMessageProperties().getConsumerQueue();
 		String body = new String(message.getBody());
-		System.out.println("queueName: " + queueName + " body: " + body);
 		
-		channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
-		//channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
+		try {
+			// TODO: implement the business logic here.
+			System.out.println("queueName: " + queueName + " body: " + body);
+
+			channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+
+		} catch (Exception ex) {
+			// TODO: sleep and logging.
+
+			channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
+		}
 	}
 
 }
